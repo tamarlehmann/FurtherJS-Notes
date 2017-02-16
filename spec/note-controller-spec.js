@@ -25,10 +25,18 @@ function testClickedNoteDisplaysSingleNote(){
   var linkDouble = document.createElement('app');
   var noteDouble = document.createElement('singlenote');
   var controller = new NoteController(list, linkDouble);
-  console.log(controller.noteList)
+  console.log(controller.noteList._noteList[0]._noteText);
   controller.htmlInserter();
+  console.log(linkDouble.innerHTML)
   controller.urlChangeShowsNote();
-  linkDouble.querySelector('a').click();
+  // linkDouble.querySelector('a').click();
+  // location.hash = "#notes/0"
+  // function locationDouble() {
+  //   this.hash = "#notes/0"
+  // }
+  // var location = new locationDouble()
+
+  console.log(noteDouble.innerHTML);
   assert.isTrue(noteDouble.innerHTML === "Hello, I love Javascript!");
 };
 
