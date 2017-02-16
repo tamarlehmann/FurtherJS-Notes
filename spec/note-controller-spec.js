@@ -20,6 +20,28 @@ function testAppElementContainsNotesAsHTML() {
 console.log("9. The app element contains notes as HTML string.");
 testAppElementContainsNotesAsHTML();
 
+
+
+function testEmptyListOnAppStart() {
+  var doubleElement = document.createElement('div');
+  doubleElement.innerHTML = "Please add a note";
+  var list = new NoteList();
+  var controller = new NoteController(list, doubleElement);
+  assert.isTrue(controller.element.innerHTML === "Please add a note");
+}
+console.log("12. When the app loads, the HTML for an empty note list is displayed");
+testEmptyListOnAppStart();
+
+
+function testNewNoteWrittenToAppElement() {
+  var doubleFormElement = document.createElement('form');
+  doubleFormElement.value = "This is my test. Hi Test"
+  console.log(doubleFormElement.value)
+
+}
+console.log("13. When a submit event is triggered, the HTML for a note list with the new note is written to the app element");
+testNewNoteWrittenToAppElement();
+
 // function testClickedNoteDisplaysSingleNote(){
 //   var list = new NoteList();
 //   list.addNote('Hello, I love Javascript!');
